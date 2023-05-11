@@ -3,7 +3,7 @@ ob_start();
 session_start();
 $pagename="Home Page";
 
-require('config.php');
+require('../config/config.php');
 include("head.php");
 require('data.php');
 require('fungsi.php');
@@ -48,8 +48,7 @@ if(isset($_POST['okada'])){
             <div class="card z-index-0 fadeIn3 fadeInBottom">
               <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                 <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
-                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign Up</h4>
-                   <p class="text-white font-weight-bolder text-center mt-2 mb-0">Enter your email and password to register</p>
+                  <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
                   <div class="row mt-3">
                     <div class="col-2 text-center ms-auto">
                       <a class="btn btn-link px-3" href="javascript:;">
@@ -71,24 +70,6 @@ if(isset($_POST['okada'])){
               </div>
               <div class="card-body">
                 <form role="form" class="text-start">
-                    
-                    <label for="cars">SIGNING UP AS ....</label>
-                     <div class="input-group input-group-outline mb-3">
-                     
-                      <select  class="form-control" name="cars" id="cars">
-                      <option value="volvo">AGENT</option>
-                      <option value="saab">LANDLORD</option>
-                    <option value="mercedes">USER</option>
-                    <option value="audi">PROPERTY DEVELOPER</option>
-                    </select>
-                    </div>
-                    
-                    
-                     <div class="input-group input-group-outline mb-3">
-                      <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
-                    </div>
-                    
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Email</label>
                     <input type="email" class="form-control">
@@ -97,29 +78,19 @@ if(isset($_POST['okada'])){
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control">
                   </div>
-                  
-                   <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Phone Number</label>
-                    <input type="text" class="form-control">
+                  <div class="form-check form-switch d-flex align-items-center mb-3">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                    <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                   </div>
-                  
-                  <div class="form-check form-check-info text-start ps-0">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
-                      <label class="form-check-label" for="flexCheckDefault">
-                        I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
-                      </label>
-                    </div>
-                    <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
-                    </div>
+                  <div class="text-center">
+                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                  </div>
+                  <p class="mt-4 text-sm text-center">
+                    Don't have an account?
+                    <a href="../pages/sign-up.html" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                  </p>
                 </form>
               </div>
-               <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                  <p class="mb-2 text-sm mx-auto">
-                    Already have an account?
-                    <a href="../pages/sign-in.html" class="text-primary text-gradient font-weight-bold">Sign in</a>
-                  </p>
-                </div>
             </div>
           </div>
         </div>
