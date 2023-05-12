@@ -4,10 +4,10 @@ ob_start();
 session_start();
 $pagename="Home Page";
 
-require('config.php');
-include("head.php");
-require('data.php');
-require('fungsi.php');
+require('config/config.php');
+include("views/head.php");
+// require('views/data.php');
+require('views/fungsi.php');
 
 
 if(isset($_POST['okada'])){
@@ -28,15 +28,9 @@ if(isset($_POST['okada'])){
     $furnished="All Types";
     $serviced="All Types";
     $shared="All Types";
-    
     header("Location:search.php?ps=$propertylocation&type=$tid&bedrooms=$bedrooms&minprice=$minprice&maxprice=$maxprice&furnished=$furnished&king=1&serviced=$serviced&shared=$shared");
     exit();
-    
-    
 }
-
-
-
 ?>
 <div class="home-bg">
 

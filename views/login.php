@@ -1,9 +1,9 @@
 <?php
 ob_start();
-session_start();
 $pagename="Home Page";
 
 require('../config/config.php');
+require('../controllers/login.php');
 include("head.php");
 require('data.php');
 require('fungsi.php');
@@ -69,21 +69,28 @@ if(isset($_POST['okada'])){
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+              <?php if (!empty($error)) : ?>
+                               <div class="container">
+                                   <?php foreach ($error as $err) : ?>
+                                       <div class="alert alert-danger"><?php echo $err . '<br>' ?></div>
+                                   <?php endforeach; ?>
+                               </div>
+                    <?php endif; ?>
+                <form role="form" class="text-start" method="POST" action="">
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password">
                   </div>
                   <div class="form-check form-switch d-flex align-items-center mb-3">
                     <input class="form-check-input" type="checkbox" id="rememberMe" checked>
                     <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" name="login">Sign in</button>
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?

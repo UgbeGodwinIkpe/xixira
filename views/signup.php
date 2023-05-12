@@ -4,6 +4,7 @@ session_start();
 $pagename="Home Page";
 
 require('../config/config.php');
+require('../controllers/signup.php');
 include("head.php");
 require('data.php');
 require('fungsi.php');
@@ -29,13 +30,8 @@ if(isset($_POST['okada'])){
     $shared="All Types";
     
     header("Location:search.php?ps=$propertylocation&type=$tid&bedrooms=$bedrooms&minprice=$minprice&maxprice=$maxprice&furnished=$furnished&king=1&serviced=$serviced&shared=$shared");
-    exit();
-    
-    
+    exit();   
 }
-
-
-
 ?>
 
 
@@ -70,39 +66,45 @@ if(isset($_POST['okada'])){
                 </div>
               </div>
               <div class="card-body">
-                <form role="form" class="text-start">
+              <?php if (!empty($error)) : ?>
+                               <div class="container">
+                                   <?php foreach ($error as $err) : ?>
+                                       <div class="alert alert-danger"><?php echo $err . '<br>' ?></div>
+                                   <?php endforeach; ?>
+                               </div>
+                    <?php endif; ?>
+                <form role="form" class="text-start" method="POST" action="">
                     
                     <label for="cars">SIGNING UP AS ....</label>
                      <div class="input-group input-group-outline mb-3">
-                     
-                      <select  class="form-control" name="cars" id="cars">
+                     <select  class="form-control" name="accttype" id="cars">
                       <option value="volvo">AGENT</option>
                       <option value="saab">LANDLORD</option>
-                    <option value="mercedes">USER</option>
-                    <option value="audi">PROPERTY DEVELOPER</option>
+                      <option value="mercedes">USER</option>
+                      <option value="audi">PROPERTY DEVELOPER</option>
                     </select>
                     </div>
-                    
-                    
                      <div class="input-group input-group-outline mb-3">
                       <label class="form-label">Name</label>
-                      <input type="text" class="form-control">
+                      <input type="text" class="form-control" name="username">
                     </div>
                     
                   <div class="input-group input-group-outline my-3">
                     <label class="form-label">Email</label>
-                    <input type="email" class="form-control">
+                    <input type="email" class="form-control" name="email">
                   </div>
                   <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Password</label>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password">
                   </div>
-                  
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmpassword">
+                  </div>
                    <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Phone Number</label>
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" name="phone_number">
                   </div>
-                  
                   <div class="form-check form-check-info text-start ps-0">
                       <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
                       <label class="form-check-label" for="flexCheckDefault">
@@ -110,7 +112,7 @@ if(isset($_POST['okada'])){
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0">Sign Up</button>
+                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" name="signup">Sign Up</button>
                     </div>
                 </form>
               </div>
@@ -124,7 +126,6 @@ if(isset($_POST['okada'])){
           </div>
         </div>
       </div>
-    
     </div>
   </main>
   <!--   Core JS Files   -->
