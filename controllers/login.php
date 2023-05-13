@@ -9,7 +9,7 @@ $msg=[];
 session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-    header('location: dashboard.php');
+    header('location: agent/dashboard.php');
 } else {
     session_destroy();
 }
@@ -42,7 +42,7 @@ if (isset($_POST['login'])) {
             $user = $fetch['userid'];
             session_start();
             $_SESSION['user'] = $user;
-            header('location: dashboard.php');
+            header('location: agent/dashboard.php');
         } else {
             $error[] = "Email or password is incorrect!";
         }
