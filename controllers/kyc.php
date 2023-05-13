@@ -24,8 +24,8 @@ if (isset($_POST['kyc'])) {
         $status = 'pending';
 
         if ($id_card && $selfie) {
-            $query = "INSERT INTO kyc (id_card, selfie)
-                    VALUES ('$id_card', '$selfie')";
+            $query = "INSERT INTO kyc (userid, id_card, selfie)
+                    VALUES ('$user', '$id_card', '$selfie')";
             $send = mysqli_query($link, $query);
             if ($send) {
                ?>
@@ -38,7 +38,7 @@ if (isset($_POST['kyc'])) {
         }
     } else {
      //return error here
-       $err_msg[]= "Oop! Something went wrong!";
+       $error[]= "Oop! Something went wrong!";
 
     }
 }

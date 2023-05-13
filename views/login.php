@@ -69,8 +69,15 @@ if(isset($_POST['okada'])){
                 </div>
               </div>
               <div class="card-body">
+              <?php if (!empty($msg)) : ?>
+                               <div class="my-3">
+                                   <?php foreach ($msg as $message) : ?>
+                                       <div class="alert alert-danger"><?php echo $message . '<br>' ?></div>
+                                   <?php endforeach; ?>
+                               </div>
+                    <?php endif; ?>
               <?php if (!empty($error)) : ?>
-                               <div class="container">
+                               <div class="my-3">
                                    <?php foreach ($error as $err) : ?>
                                        <div class="alert alert-danger"><?php echo $err . '<br>' ?></div>
                                    <?php endforeach; ?>

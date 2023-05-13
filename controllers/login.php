@@ -2,6 +2,7 @@
 require 'functions.php';
 require '../config/config.php';
 $error = [];
+$msg=[];
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
 
@@ -12,7 +13,9 @@ if (isset($_SESSION['user'])) {
 } else {
     session_destroy();
 }
-
+if(isset($_GET['success'])==1){
+    $msg[]="You registration was successful!";
+}
 if (isset($_POST['login'])) {
     $err_flag = false;
     if (!empty($_POST['email'])) {
