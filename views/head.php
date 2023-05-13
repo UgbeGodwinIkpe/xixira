@@ -382,6 +382,8 @@ if( !($detect->isMobile())  ){?>
 <li style="font-family:Roboto;"><a class="onepage" href="#">Agents</a></li>
 <li style="font-family:Roboto;"><a class="onepage" href="#">Blog</a></li>
 <li style="font-family:Roboto;"><a class="onepage" href="#">Prestige</a></li>
+<li style="font-family:Roboto;"><a style="font-family:Roboto;" href="login.php" >Login</a></li>
+<li style="font-family:Roboto;" class="nex-last"><a style="font-family:Roboto;" href="signup.php">Sign Up</a></li>
 <!--<li style="font-family:Roboto;"><a class="post-free white-menu" style="font-family:Roboto;" href="#">Post A Property <span>Free</span></a></li>
 <li style="font-family:Roboto;"><a class="login white-menu" style="font-family:Roboto;" href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
 <li style="font-family:Roboto;"><a class="sign Up white-menu" style="font-family:Roboto;" href="#">Sign Up</a></li>-->
