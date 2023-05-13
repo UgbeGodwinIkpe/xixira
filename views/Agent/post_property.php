@@ -49,7 +49,7 @@
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="../pages/dashboard.html">
+          <a class="nav-link text-white active bg-gradient-primary" href="dashboard.php">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
@@ -235,10 +235,10 @@
             <div class="card-header pb-0">
               <div class="row">
                 <div class="col-lg-6 col-7">
-                  <h6>Projects</h6>
+                  <h6>Post Property</h6>
                   <p class="text-sm mb-0">
                     <i class="fa fa-check text-info" aria-hidden="true"></i>
-                    <span class="font-weight-bold ms-1">30 done</span> this month
+                    <span class="font-weight-bold ms-1">Put your property</span> in front of millions of home-seekers
                   </p>
                 </div>
                 <div class="col-lg-6 col-5 my-auto text-end">
@@ -255,19 +255,180 @@
                 </div>
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive">
-               
+            
+
+              <div class="row">
+  <div class="mx-auto col-10 col-md-8 col-lg-6">
+
+
+                <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Ttttle</label>
+                    <input type="text" class="form-control" name="tittle">
+                  </div>
+
+
+                       <label for="cars">Purpose</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">For Rent</option>
+                      <option value="saab">For Sale</option>
+                      <option value="mercedes">Short Let</option>
+                    </select>
+                    </div>
+
+
+                       <label for="cars"> Type of Property</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">Co-working Space</option>
+                      <option value="saab">Commercial Property</option>
+                      <option value="mercedes">Flat/Apartment</option>
+                      <option value="mercedes">House</option>
+                      <option value="mercedes">Land</option>
+                    </select>
+                    </div>
+
+
+                       <label for="cars"> Bedrooms</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">1</option>
+                      <option value="saab">2</option>
+                      <option value="mercedes">3</option>
+                      <option value="mercedes">4</option>
+                      <option value="mercedes">5</option>
+                      <option value="volvo">6</option>
+                      <option value="saab">7</option>
+                      <option value="mercedes">8</option>
+                      <option value="mercedes">9</option>
+                      <option value="mercedes">10+</option>
+                    </select>
+                    </div>
+
+
+                      <label for="cars"> Bathrooms</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">1</option>
+                      <option value="saab">2</option>
+                      <option value="mercedes">3</option>
+                      <option value="mercedes">4</option>
+                      <option value="mercedes">5</option>
+                      <option value="volvo">6</option>
+                      <option value="saab">7</option>
+                      <option value="mercedes">8</option>
+                      <option value="mercedes">9</option>
+                      <option value="mercedes">10+</option>
+                    </select>
+                    </div>
+
+                      <label for="cars"> Toilets</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">1</option>
+                      <option value="saab">2</option>
+                      <option value="mercedes">3</option>
+                      <option value="mercedes">4</option>
+                      <option value="mercedes">5</option>
+                      <option value="volvo">6</option>
+                      <option value="saab">7</option>
+                      <option value="mercedes">8</option>
+                      <option value="mercedes">9</option>
+                      <option value="mercedes">10+</option>
+                    </select>
+                    </div>
+
+                      <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Size SQM e.g 1</label>
+                    <input type="text" class="form-control" name="size">
+                  </div>
+
+
+                   <label for="cars"> Status</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">Furnished</option>
+                      <option value="saab">Served</option>
+                      <option value="mercedes">Newly Built</option>
+                    </select>
+                    </div>
+
+                      <label for="cars"> Choose State</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">Abia</option>
+                      <option value="saab">Lagos</option>
+                      <option value="mercedes">Abuja</option>
+                      <option value="mercedes">Cross River</option>
+                      <option value="mercedes">Kano</option>
+                      <option value="volvo">Kaduna</option>
+                      <option value="saab">Kogi</option>
+                      <option value="mercedes">Niger</option>
+                      <option value="mercedes">Kebbi</option>
+                      <option value="mercedes">Katsina</option>
+                       <option value="volvo">Adamawa</option>
+                      <option value="saab">Borno</option>
+                      <option value="mercedes">Jibawa</option>
+                      <option value="mercedes">Osun</option>
+                      <option value="mercedes">Enugu</option>
+                      <option value="volvo">Benue</option>
+                      <option value="saab">Ondo</option>
+                      <option value="mercedes">Delta</option>
+                      <option value="mercedes">Oyo</option>
+                      <option value="mercedes">Anambra</option>
+                       <option value="mercedes">Akwa Ibom</option>
+                    </select>
+                    </div>
+
+
+                       <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Locality</label>
+                    <input type="text" class="form-control" name="locality">
+                  </div>
 
 
 
+                     <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Area</label>
+                    <input type="text" class="form-control" name="area">
+                  </div>
+
+                   <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Street / Neighbourhood</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
 
 
+                     <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Price</label>
+                    <input type="text" class="form-control" name="price">
+                  </div>
+
+                     <label for="cars"> Append to</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="accttype" id="cars">
+                      <option value="volvo">/Year</option>
+                      <option value="saab">/Month</option>
+                      <option value="mercedes">/Day</option>
+                    </select>
+                    </div>
+
+                     <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
 
 
-          </div>
-        </div>
-       
+                       <div class="form-group">
+                       <label for="exampleFormControlFile1">Choose 1 or more images at once</label>
+                     <input type="file" class="btn bg-gradient-primary mt-4 w-100" id="exampleFormControlFile1">
+                    </div>
+                       
+
+             
+                    <button type="submit" class="btn btn-primary mb-2">Confirm Post</button>
+                     </div>
+                      </div>
         </div>
       </footer>
     </div>
