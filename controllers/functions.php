@@ -3,10 +3,10 @@ require_once "../config/config.php";
 
 function sanitize($form_input)
 {
-    global $link;
+    global $con;
     $form_input = trim($form_input);
     $form_input = strip_tags($form_input, '<p><h1><h2><img><i><b><u>');
-    $form_input = mysqli_real_escape_string($link, $form_input);
+    $form_input = mysqli_real_escape_string($con, $form_input);
 
     return $form_input;
 
@@ -14,9 +14,9 @@ function sanitize($form_input)
 
 function check_duplicate($table_name, $field, $user_input)
 {
-    global $link;
+    global $con;
     $sql = "SELECT * FROM $table_name WHERE $field = '$user_input'";
-    $query = mysqli_query($link, $sql);
+    $query = mysqli_query($con, $sql);
 
     if ($query) {
         if (mysqli_num_rows($query) > 0) {

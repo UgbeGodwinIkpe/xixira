@@ -66,14 +66,14 @@ if(isset($_POST['okada'])){
                 </div>
               </div>
               <div class="card-body">
-              <?php if (!empty($error)) : ?>
-                               <div class="container">
-                                   <?php foreach ($error as $err) : ?>
-                                       <div class="alert alert-danger"><?php echo $err . '<br>' ?></div>
-                                   <?php endforeach; ?>
-                               </div>
-                    <?php endif; ?>
                 <form role="form" class="text-start" method="POST" action="">
+                  <?php if (!empty($error)) : ?>
+                                   <div class="input-group input-group-outline mb-3">
+                                       <?php foreach ($error as $err) : ?>
+                                           <div class="alert alert-danger"><?php echo $err . '<br>' ?></div>
+                                       <?php endforeach; ?>
+                                   </div>
+                        <?php endif; ?>
                     
                     <label for="cars">SIGNING UP AS ....</label>
                      <div class="input-group input-group-outline mb-3">

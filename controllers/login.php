@@ -1,6 +1,6 @@
 <?php
 require 'functions.php';
-require '../../config/config.php';
+require '../config/config.php';
 $error = [];
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
@@ -30,7 +30,7 @@ if (isset($_POST['login'])) {
     if (empty($err_msg)) {
         $query = "SELECT * FROM users WHERE email= '$email' and password = '$pass'";
 
-        $check = mysqli_query($link, $query);
+        $check = mysqli_query($con, $query);
         //  or die(mysqli_error($db));
         $find = mysqli_num_rows($check);
         

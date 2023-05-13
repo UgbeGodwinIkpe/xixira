@@ -12,7 +12,7 @@ if (isset($_SESSION['user'])) {
 if(isset($_POST['signup'])){ 
      if (!empty($_POST['email'])) {
           $emailTemp = sanitize($_POST['email']);
-          if (!check_duplicate('patient', 'email', $emailTemp)) {
+          if (!check_duplicate('users', 'email', $emailTemp)) {
               $email = $emailTemp;
           } else {
               $error[] = "Sorry, this email has already been registered
@@ -24,15 +24,18 @@ if(isset($_POST['signup'])){
      if (!empty($_POST['username'])) {
           $username = sanitize($_POST['username']); 
       } else {
-          $error[] = "What is your first name?";
+          $error[] = "Name is required";
       }
       if (!empty($_POST['password'])) {
           $password = sanitize($_POST['password']); 
       } else {
           $error[] = "Password is required";
       }
-      if (!empty($_POST['confirmpassword'])) {
-          $repeat_pass = sanitize($_POST['repeat_password']);
+      if($password<6) {
+        $error[] = "Password is required";
+    }
+    if (!empty($_POST['confirmpassword'])) {
+          $repeat_pass = sanitize($_POST['confirmpassword']);
              if ($password== $repeat_pass) {
                  $password = $repeat_pass;
              } else {
@@ -53,17 +56,20 @@ if(isset($_POST['signup'])){
       }
      //  if there is no error
      if (empty($error)) {
-          $vcode = rand(3, 1000000000);
+          $unique_code = rand(3, 1000000000);
           $key = md5($email);
+        //   echo $unique_code." ".$key;
+        //   die();
   
           $query = "INSERT INTO users (username, email, password, accttype, phone_number, vcode) 
-                      VALUES ('$username', '$email', '$password', '$home_address', '$gender', '$age', '$health_status')";
+                      VALUES ('$username', '$email', '$password', '$accttype', '$phone_number', '$unique_code')";
   
-          $ent = mysqli_query($con, $query) or die(mysqli_error($link));
+          $ent = mysqli_query($con, $query) or die(mysqli_error($con));
           if ($ent) {
-              $sign = "<a href = 'http://localhost:9090/meds/pages/patient/signin.php?key=" . $key . "&mail=" . $email . "' style = 'color: #c36103; font-weight: bold; text-transform: capitalize; text-decoration: none;'> Sign In </a>";
+              $sign = "<a href = 'http://localhost:9090/xixira/views/loginin.php?key=" . $key . "&mail=" . $email . "' style = 'color: #c36103; font-weight: bold; text-transform: capitalize; text-decoration: none;'> Sign In </a>";
               $message = `<p><h4>Hello $username, </h4><p>
                               <p>Thank you for registration on Xixira System.</p>
+                              <p>Your unique code is: <h3> $unique_code </h3> please keep it safe as it maybe require during you KYC verification. </p>
                               <p>Your password is: <h3> $password </h3> </p>
                               <p>Welcome Aboard!</p> \n
                               <p>You can sign in here: $sign </p> \n
@@ -78,9 +84,9 @@ if(isset($_POST['signup'])){
               $headers = "Content-type:text/html;charset=UTF-8";
               $send = mail($to, $subject, $message, $headers);
               if ($send == true) {
-                  header('location: signin.php?success=1');
+                  header('location: login.php?success=1');
               } else {
-                  header('location: signin.php?success=1');
+                  header('location: login.php?success=1');
               }
           }
       } else {

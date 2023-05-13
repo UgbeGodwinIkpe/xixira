@@ -5,7 +5,7 @@ $pagename="Home Page";
 require('../config/config.php');
 require('../controllers/login.php');
 include("head.php");
-require('data.php');
+// require('data.php');
 require('fungsi.php');
 
 
@@ -90,7 +90,7 @@ if(isset($_POST['okada'])){
                     <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
                   </div>
                   <div class="text-center">
-                    <button type="button" class="btn bg-gradient-primary w-100 my-4 mb-2" name="login">Sign in</button>
+                    <button type="submit" class="btn bg-gradient-primary w-100 my-4 mb-2" name="login">Sign in</button>
                   </div>
                   <p class="mt-4 text-sm text-center">
                     Don't have an account?
