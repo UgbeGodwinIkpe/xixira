@@ -6,7 +6,7 @@ $pagename="Home Page";
 require('../config/config.php');
 require('../controllers/signup.php');
 include("head.php");
-require('data.php');
+// require('data.php');
 require('fungsi.php');
 
 
@@ -112,7 +112,7 @@ if(isset($_POST['okada'])){
                       </label>
                     </div>
                     <div class="text-center">
-                      <button type="button" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" name="signup">Sign Up</button>
+                      <button type="submit" class="btn btn-lg bg-gradient-primary btn-lg w-100 mt-4 mb-0" name="signup">Sign Up</button>
                     </div>
                 </form>
               </div>

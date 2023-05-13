@@ -18,7 +18,6 @@ session_start();
     $errmsg_arr[] = 'Password missing';
     $errflag = true;
   }
-  
   //If there are input validations, redirect back to the login form
   
   
@@ -54,7 +53,3 @@ session_start();
     die("Query failed");
   }
 ?>
-
-
-
-

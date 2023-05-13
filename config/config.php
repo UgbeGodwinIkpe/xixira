@@ -5,9 +5,9 @@ global $con;
 $dbHost = "localhost"; // Isi dengan localhost
 $dbUser = "root"; // database user
 $dbPassword = ""; // database pass
-$db="native"; // database name
+$db="xixira"; // database name
 // conneting to the server
-$con = mysqli_connect($dbHost, $dbUser, $dbPassword, $db) or die("Could not connect database");
+$con = mysqli_connect($dbHost, $dbUser, $dbPassword, $db) or die("Could not connect to database");
 
 // if($_COOKIE["username"] and $_COOKIE["password"]){
 //      $q = mysqli_query( $con, "SELECT * FROM tb_users WHERE username='{$_COOKIE['username']}' AND password='{$_COOKIE['password']}'") or die(mysqli_error($con));
