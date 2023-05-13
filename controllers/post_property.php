@@ -4,7 +4,7 @@ require '../config/config.php';
 $error = [];
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);
-
+// <input name="upload[]" type="file" multiple="multiple" />
 session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
@@ -13,79 +13,125 @@ if (isset($_SESSION['user'])) {
     session_destroy();
 }
 
+$files = array_filter($_FILES['upload']['name']); //Use something similar before processing files.
+// Count the number of uploaded files in array
+$total_count = count($_FILES['upload']['name']);
+// Loop through every file
+for( $i=0 ; $i < $total_count ; $i++ ) {
+   //The temp file path is obtained
+   $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
+   //A file path needs to be present
+   if ($tmpFilePath != ""){
+      //Setup our new file path
+      $newFilePath = "./uploadFiles/" . $_FILES['upload']['name'][$i];
+      //File is uploaded to temp dir
+      if(move_uploaded_file($tmpFilePath, $newFilePath)) {
+         //Other code goes here
+      }
+   }
+}
+
+
+
 if (isset($_POST['property'])) {
     $error_flag = false;
-    if (!empty($_POST['email'])) {
-        $emailTemp = sanitize($_POST['email']);
-        if (!check_duplicate('consultant', 'email', $emailTemp)) {
-            $email = $emailTemp;
-        } else {
-            $err_msg[] = "Sorry, someone has already applied with this email
-                    : $emailTemp";
-        }
-    } else {
-        $err_msg = "An email address is necessary";
-    }
-
-    if (!empty($_POST['fname'])) {
-        $fname = sanitize($_POST['fname']);
+    if (!empty($_POST['title'])) {
+        $title = sanitize($_POST['title']);
         
     } else {
-        $err_msg[] = "What is your first name?";
+        $error[] = "Title is required!";
     }
 
-    if (!empty($_POST['lname'])) {
-        $lname = sanitize($_POST['lname']);
+    if (!empty($_POST['purpose'])) {
+        $purpose = sanitize($_POST['purpose']);
     } else {
-        $err_msg[] = "What is your last name?";
+        $error[] = "Purpose field can not be empty";
     }
 
-    if (!empty($_POST['home'])) {
-        $home_address = sanitize($_POST['home']);
+    if (!empty($_POST['type'])) {
+        $type = sanitize($_POST['type']);
     } else {
-     $err_msg[] = "What is the address of where you live?";
+     $error[] = "What is the type of the property?";
     }
-    if (!empty($_POST['office'])) {
-     $office_address = sanitize($_POST['office']);
+    if (!empty($_POST['subtype'])) {
+     $subtype = sanitize($_POST['subtype']);
      } else {
-     $err_msg[] = "What is the address of where you live?";
+     $error[] = "What is the address of where you live?";
      }
-     if (!empty($_POST['phone'])) {
-          $phone_no = sanitize($_POST['phone']);
+     if (!empty($_POST['bedrooms'])) {
+          $bedrooms = sanitize($_POST['bedrooms']);
       } else {
-       $err_msg[] = "What is the address of where you live?";
+       $error[] = "How many bedrooms is this property?";
       }
   
-    if (!empty($_POST['password'])) {
-        $pass = sanitize($_POST['password']);
+    if (!empty($_POST['toilet'])) {
+        $toilet = sanitize($_POST['toilet']);
     } else {
-        $err_msg[] = "Please enter a password";
+        $error[] = "Please enter number of toilet";
     }
 
-    if (!empty($_POST['repeat_password'])) {
-     $repeat_pass = sanitize($_POST['repeat_password']);
-        if ($pass== $repeat_pass) {
-            $pass = $repeat_pass;
-        } else {
-            $err_msg[] = "Your Passwords do not match";
-        }
+    if (!empty($_POST['size'])) {
+     $size = sanitize($_POST['size']);
+       
     } else {
-        $err_msg[] = "Please retype the password";
+        $error[] = "The size of the property is required";
     }
-    if (!empty($_POST['sex'])) {
-     $gender = sanitize($_POST['sex']);
+    if (!empty($_POST['state'])) {
+        $state = sanitize($_POST['state']);
+          
+       } else {
+           $error[] = "Which state is this property?";
+       }
+       if (!empty($_POST['locality'])) {
+        $locality = sanitize($_POST['locality']);
+          
+       } else {
+           $error[] = "The locality field is required";
+       }
+       if (!empty($_POST['area'])) {
+        $area = sanitize($_POST['area']);
+          
+       } else {
+           $error[] = "The area field is required";
+       }
+       if (!empty($_POST['address'])) {
+        $address = sanitize($_POST['address']);
+          
+       } else {
+           $error[] = "The size of the property is required";
+       }
+       if (!empty($_POST['price'])) {
+        $price = sanitize($_POST['price']);
+          
+       } else {
+           $error[] = "Set the price for this property";
+       }
+       if (!empty($_POST['currency'])) {
+        $currency = sanitize($_POST['currency']);
+          
+       } else {
+           $error[] = "Select the currency type";
+       }
+       if (!empty($_POST['description'])) {
+        $description = sanitize($_POST['description']);
+          
+       } else {
+           $error[] = "brief description of the property is required!";
+       }
+    if (!empty($_POST['furnished'])) {
+     $furnished = sanitize($_POST['furnished']);
      } else {
-          $err_msg[] = "What is your gender?";
+        $furnished = 0;
      }
-     if (!empty($_POST['xperience_years'])) {
-          $xp_years = sanitize($_POST['xperience_years']);
+     if (!empty($_POST['serviced'])) {
+          $serviced = sanitize($_POST['serviced']);
      } else {
-     $err_msg[] = "You must provide your years of experience";
+        $serviced = 0;
      }
-     if (!empty($_POST['qualification'])) {
-          $qualification = sanitize($_POST['qualification']);
+     if (!empty($_POST['newly-built'])) {
+          $newly = sanitize($_POST['newly-built']);
      } else {
-     $err_msg[] = "You must provide the highest qualification you have on medical profession!";
+     $newly= 0;
      }
      
     //  if there is no erroe
