@@ -5,7 +5,7 @@ global $con;
 $dbHost = "localhost"; // Isi dengan localhost
 $dbUser = "root"; // database user
 $dbPassword = ""; // database pass
-$db="xixira"; // database name
+$db="native"; // database name
 // conneting to the server
 $con = mysqli_connect($dbHost, $dbUser, $dbPassword, $db) or die("Could not connect database");
 
