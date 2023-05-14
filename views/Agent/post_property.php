@@ -345,15 +345,20 @@
                     <input type="text" class="form-control" name="size">
                   </div>
 
-
-                   <label for="cars"> Status</label>
-                     <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">Furnished</option>
-                      <option value="saab">Served</option>
-                      <option value="mercedes">Newly Built</option>
-                    </select>
+                      
+                    <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value=">Furnished">
+                    <label class="form-check-label" for="inlineCheckbox1">Furnished</label>
                     </div>
+                    <div class="form-check form-check-inline">
+                   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Served">
+                    <label class="form-check-label" for="inlineCheckbox2">Served</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Newly Built">
+                 <label class="form-check-label" for="inlineCheckbox3">Newly Built</label>
+                  </div>
+
 
                       <label for="cars"> Choose State</label>
                      <div class="input-group input-group-outline mb-3">
@@ -413,6 +418,11 @@
                       <option value="saab">/Month</option>
                       <option value="mercedes">/Day</option>
                     </select>
+                    </div>
+
+                     <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value=">installment">
+                    <label class="form-check-label" for="inlineCheckbox1">Installmental Payment</label>
                     </div>
 
                      <div class="input-group input-group-outline mb-3">
