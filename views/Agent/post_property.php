@@ -1,17 +1,3 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.4
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -260,7 +246,7 @@
               <div class="row">
   <div class="mx-auto col-10 col-md-8 col-lg-6">
 
-
+                <form action="" method="post"></form>
                 <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Ttttle</label>
                     <input type="text" class="form-control" name="tittle">
@@ -415,20 +401,16 @@
 
                      <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="15"></textarea>
                   </div>
-
-
-                       <div class="form-group">
-                       <label for="exampleFormControlFile1">Choose 1 or more images at once</label>
-                     <input type="file" class="btn bg-gradient-primary mt-4 w-100" id="exampleFormControlFile1">
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Choose 1 or more images at once</label>
+                      <input name="upload[]" type="file" multiple="multiple" class="btn bg-gradient-primary mt-4 w-100" id="exampleFormControlFile1">
                     </div>
-                       
-
-             
-                    <button type="submit" class="btn btn-primary mb-2">Confirm Post</button>
-                     </div>
-                      </div>
+                    <button type="submit" name="property" class="btn btn-primary mb-2">Confirm Post</button>
+            </div>
+            </form>
+          </div>
         </div>
       </footer>
     </div>
