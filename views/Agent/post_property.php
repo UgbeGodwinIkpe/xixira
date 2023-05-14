@@ -248,8 +248,6 @@
 
                 <form action="" method="post"></form>
 
-                <form action="property_images.php" method="post">
-
                 <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Ttttle</label>
                     <input type="text" class="form-control" name="tittle">
@@ -336,9 +334,9 @@
                    <label for="cars"> Status</label>
                      <div class="input-group input-group-outline mb-3">
                      <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">Furnished</option>
-                      <option value="saab">Served</option>
-                      <option value="mercedes">Newly Built</option>
+                      <option value="1">Furnished</option>
+                      <option value="1">Served</option>
+                      <option value="1">Newly Built</option>
                     </select>
                     </div>
 
