@@ -143,7 +143,7 @@ if (isset($_POST['property'])) {
                 echo "Error ". mysqli_error($con);
             }
             if ($send) {
-                header('location: property_images.php?propertyid=$propertyid');
+                header('location: property_images.php?propertyid='.$propertyid);
             }
         }
     } else {
