@@ -1,6 +1,6 @@
 <?php
 require 'functions.php';
-require '../config/config.php';
+require '../../config/config.php';
 $error = [];
 $propertyid=$_GET['propertyid'];
 // ini_set('display_errors', 1);
