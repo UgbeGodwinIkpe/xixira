@@ -1,17 +1,19 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.4
-=========================================================
+<?php
+require 'functions.php';
+require '../../config/config.php';
+$error = [];
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// <input name="upload[]" type="file" multiple="multiple" />
+session_start();
+if (isset($_SESSION['user'])) {
+    $user = $_SESSION['user'];
+} else {
+    session_destroy();
+    header('location: ../login.php');
+}
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+?>
 <!DOCTYPE html>
 <html lang="en">
 

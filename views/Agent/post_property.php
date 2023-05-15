@@ -1,17 +1,8 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.4
-=========================================================
+<?php
+require('../../config/config.php');
+require('../../controllers/post_property.php');
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -271,7 +262,7 @@
 
                        <label for="cars">Purpose</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
+                     <select  class="form-control" name="purpose" id="cars">
                       <option value="volvo">For Rent</option>
                       <option value="saab">For Sale</option>
                       <option value="mercedes">Short Let</option>
@@ -281,62 +272,73 @@
 
                        <label for="cars"> Type of Property</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">Co-working Space</option>
-                      <option value="saab">Commercial Property</option>
-                      <option value="mercedes">Flat/Apartment</option>
-                      <option value="mercedes">House</option>
-                      <option value="mercedes">Land</option>
+                     <select  class="form-control" name="type" id="cars">
+                      <option value="Co-working Space">Co-working Space</option>
+                      <option value="Commercial Property">Commercial Property</option>
+                      <option value="Flat/Apartment">Flat/Apartment</option>
+                      <option value="Houses">House</option>
+                      <option value="Land">Land</option>
+                    </select>
+                    </div>
+                    <!-- Sub type of the property -->
+                    <label for="cars"> Sub Type</label>
+                     <div class="input-group input-group-outline mb-3">
+                     <select  class="form-control" name="subtype" id="cars">
+                      <option value="Co-working Space">Co-working Space</option>
+                      <option value="Commercial Property">Commercial Property</option>
+                      <option value="Flat/Apartment">Flat/Apartment</option>
+                      <option value="Houses">House</option>
+                      <option value="Land">Land</option>
                     </select>
                     </div>
 
 
                        <label for="cars"> Bedrooms</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">1</option>
-                      <option value="saab">2</option>
-                      <option value="mercedes">3</option>
-                      <option value="mercedes">4</option>
-                      <option value="mercedes">5</option>
-                      <option value="volvo">6</option>
-                      <option value="saab">7</option>
-                      <option value="mercedes">8</option>
-                      <option value="mercedes">9</option>
-                      <option value="mercedes">10+</option>
+                     <select  class="form-control" name="bedrooms" id="cars">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10+</option>
                     </select>
                     </div>
 
 
                       <label for="cars"> Bathrooms</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">1</option>
-                      <option value="saab">2</option>
-                      <option value="mercedes">3</option>
-                      <option value="mercedes">4</option>
-                      <option value="mercedes">5</option>
-                      <option value="volvo">6</option>
-                      <option value="saab">7</option>
-                      <option value="mercedes">8</option>
-                      <option value="mercedes">9</option>
-                      <option value="mercedes">10+</option>
+                     <select  class="form-control" name="bathrooms" id="cars">
+                     <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10+</option>
                     </select>
                     </div>
 
                       <label for="cars"> Toilets</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">1</option>
-                      <option value="saab">2</option>
-                      <option value="mercedes">3</option>
-                      <option value="mercedes">4</option>
-                      <option value="mercedes">5</option>
-                      <option value="volvo">6</option>
-                      <option value="saab">7</option>
-                      <option value="mercedes">8</option>
-                      <option value="mercedes">9</option>
-                      <option value="mercedes">10+</option>
+                     <select  class="form-control" name="toilets" id="cars">
+                     <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10+</option>
                     </select>
                     </div>
 
@@ -347,22 +349,22 @@
 
                       
                     <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value=">Furnished">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1" name="furnished">
                     <label class="form-check-label" for="inlineCheckbox1">Furnished</label>
                     </div>
                     <div class="form-check form-check-inline">
-                   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="Served">
+                   <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="1" name="serviced">
                     <label class="form-check-label" for="inlineCheckbox2">Served</label>
                   </div>
                   <div class="form-check form-check-inline">
-                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="Newly Built">
+                 <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="1" name="newly_built">
                  <label class="form-check-label" for="inlineCheckbox3">Newly Built</label>
                   </div>
 
 
                       <label for="cars"> Choose State</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
+                     <select  class="form-control" name="state" id="cars">
                       <option value="volvo">Abia</option>
                       <option value="saab">Lagos</option>
                       <option value="mercedes">Abuja</option>
@@ -402,37 +404,43 @@
 
                    <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Street / Neighbourhood</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="address"></textarea>
                   </div>
 
 
                      <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Price</label>
                     <input type="text" class="form-control" name="price">
+                    <label class="form-label">Price</label>
+                    <select name="currency">
+                      <option value="">----</option>
+                      <option value="NGN">NGN</option>
+                      <option value="USD">USD</option>
+                    </select>
                   </div>
 
                      <label for="cars"> Append to</label>
                      <div class="input-group input-group-outline mb-3">
-                     <select  class="form-control" name="accttype" id="cars">
-                      <option value="volvo">/Year</option>
-                      <option value="saab">/Month</option>
-                      <option value="mercedes">/Day</option>
+                     <select  class="form-control" name="append_to" id="cars">
+                      <option value="Year">/Year</option>
+                      <option value="Month">/Month</option>
+                      <option value="Day">/Day</option>
                     </select>
                     </div>
 
                      <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value=">installment">
+                    <input class="form-check-input" type="checkbox" name="installment_payment" id="inlineCheckbox1" value="1">
                     <label class="form-check-label" for="inlineCheckbox1">Installmental Payment</label>
                     </div>
 
                      <div class="input-group input-group-outline mb-3">
                     <label class="form-label">Description</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="description"></textarea>
                   </div>
                        
 
              
-                    <button type="submit" class="btn btn-primary mb-2" href="property_images.php">Next</button>
+                    <button type="submit" name="property" class="btn btn-primary mb-2">Next</button>
 
                   </form>
                      </div>

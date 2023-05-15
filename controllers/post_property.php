@@ -8,30 +8,10 @@ $error = [];
 session_start();
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
-     // header('location: dashboard.php');
 } else {
     session_destroy();
+    header('location: ../login.php');
 }
-
-$files = array_filter($_FILES['upload']['name']); //Use something similar before processing files.
-// Count the number of uploaded files in array
-$total_count = count($_FILES['upload']['name']);
-// Loop through every file
-for( $i=0 ; $i < $total_count ; $i++ ) {
-   //The temp file path is obtained
-   $tmpFilePath = $_FILES['upload']['tmp_name'][$i];
-   //A file path needs to be present
-   if ($tmpFilePath != ""){
-      //Setup our new file path
-      $newFilePath = "./uploadFiles/" . $_FILES['upload']['name'][$i];
-      //File is uploaded to temp dir
-      if(move_uploaded_file($tmpFilePath, $newFilePath)) {
-         //Other code goes here
-      }
-   }
-}
-
-
 
 if (isset($_POST['property'])) {
     $error_flag = false;
@@ -56,7 +36,7 @@ if (isset($_POST['property'])) {
     if (!empty($_POST['subtype'])) {
      $subtype = sanitize($_POST['subtype']);
      } else {
-     $error[] = "What is the address of where you live?";
+     $error[] = "Sub_type for this property is required!";
      }
      if (!empty($_POST['bedrooms'])) {
           $bedrooms = sanitize($_POST['bedrooms']);
@@ -106,11 +86,23 @@ if (isset($_POST['property'])) {
        } else {
            $error[] = "Set the price for this property";
        }
+       if (!empty($_POST['append_to'])) {
+        $duration = sanitize($_POST['append_to']);
+          
+       } else {
+           $error[] = "The price for this property is append to?";
+       }
        if (!empty($_POST['currency'])) {
         $currency = sanitize($_POST['currency']);
           
        } else {
            $error[] = "Select the currency type";
+       }
+       if (!empty($_POST['installment_payment'])) {
+        $installment = sanitize($_POST['installment_payment']);
+          
+       } else {
+           $installment = 0;
        }
        if (!empty($_POST['description'])) {
         $description = sanitize($_POST['description']);
@@ -136,24 +128,20 @@ if (isset($_POST['property'])) {
      
     //  if there is no erroe
     if (empty($err_msg)) {
-        $id = rand(3, 1000000000);
-        $key = md5($email);
-        $fullN = $fname.' '.$lname;
-        $file = ($_FILES['cert']);
-        $filed = upload_cert($file, $err_msg);
+        $propertyid = rand(3, 1000000000);
         $status = 'pending';
 
         if ($filed) {
-            $query = "INSERT INTO propertirs (id, name, email, password, home_address, phone_number, qualification, present_work_address, xperience_years, certificate, sex, application_status)
-                    VALUES ('$id', '$fullN', '$email', '$pass', '$home_address', '$phone_no', '$qualification', '$office_address', '$xp_years', '$filed', '$gender', '$status')";
-            $send = mysqli_query($link, $query);
+            $query = "INSERT INTO properties (id, userid, title, purpose, type, sub_type, bedrooms, bathrooms, toilets, size, furnished, serviced, newly_built, state, locality, area, address, price, currency, append_to, installment_payment, description)
+                    VALUES ('$propertyid', '$user', '$title', '$purpose', '$type', '$sub_type', '$bedrooms', '$bathrooms', '$toilets', '$furnished', '$serviced', '$newly_built' , '$state', '$locality', '$area', '$address', '$price', '$currency', '$append_to', '$installment', '$description')";
+            $send = mysqli_query($con, $query);
             if ($send) {
                ?>
                <script>
-                    alert("Your Application has been successfully submitted. You can login and monitor the status of the application")
+                    alert("Upload the property pictures/images")
                </script>
                <?php
-                //header('location: signin.php');
+                header('location: property_images.php?user=<?php echo $user?>&propertyid=<?php echo $propertyid ?>');
             }
         }
     } else {

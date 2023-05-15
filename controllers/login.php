@@ -7,12 +7,12 @@ $msg=[];
 // error_reporting(E_ALL);
 
 session_start();
-if (isset($_SESSION['user'])) {
-    $user = $_SESSION['user'];
-    header('location: agent/dashboard.php');
-} else {
-    session_destroy();
-}
+// if (isset($_SESSION['user'])) {
+//     $user = $_SESSION['user'];
+//     header('location: agent/dashboard.php');
+// } else {
+//     session_destroy();
+// }
 if(isset($_GET['success'])==1){
     $msg[]="You registration was successful!";
 }
