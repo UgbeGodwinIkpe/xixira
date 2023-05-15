@@ -26,7 +26,6 @@ require('../../controllers/post_property.php');
   <!-- CSS Files -->
   <link id="pagestyle" href="assets/css/material-dashboard.css?v=3.0.4" rel="stylesheet" />
 </head>
-
 <body class="g-sidenav-show  bg-gray-200">
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
     <div class="sidenav-header">
@@ -218,7 +217,6 @@ require('../../controllers/post_property.php');
       </div>
     </nav>
     <!-- End Navbar -->
-       
       </div>
       <div class="row mb-4">
         <div class="col-lg-8 col-md-6 mb-md-0 mb-4">
@@ -246,21 +244,14 @@ require('../../controllers/post_property.php');
                 </div>
               </div>
             </div>
-            
-
               <div class="row">
   <div class="mx-auto col-10 col-md-8 col-lg-6">
-
-
-                <form action="property_images.php" method="post">
-
-                <div class="input-group input-group-outline mb-3">
-                    <label class="form-label">Ttttle</label>
-                    <input type="text" class="form-control" name="tittle">
-                  </div>
-
-
-                       <label for="cars">Purpose</label>
+  <form action="property_images.php" method="post">
+    <div class="input-group input-group-outline mb-3">
+      <label class="form-label">Ttttle</label>
+        <input type="text" class="form-control" name="tittle">
+      </div>
+                      <label for="cars">Purpose</label>
                      <div class="input-group input-group-outline mb-3">
                      <select  class="form-control" name="purpose" id="cars">
                       <option value="volvo">For Rent</option>
