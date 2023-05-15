@@ -14,7 +14,7 @@ if (isset($_SESSION['user'])) {
 }
 
 if (isset($_POST['property'])) {
-    $error_flag = false;
+    // $error_flag = false;
     if (!empty($_POST['title'])) {
         $title = sanitize($_POST['title']);
         
@@ -34,7 +34,7 @@ if (isset($_POST['property'])) {
      $error[] = "What is the type of the property?";
     }
     if (!empty($_POST['subtype'])) {
-     $subtype = sanitize($_POST['subtype']);
+     $sub_type = sanitize($_POST['subtype']);
      } else {
      $error[] = "Sub_type for this property is required!";
      }
@@ -43,11 +43,15 @@ if (isset($_POST['property'])) {
       } else {
        $error[] = "How many bedrooms is this property?";
       }
-  
-    if (!empty($_POST['toilet'])) {
-        $toilet = sanitize($_POST['toilet']);
+      if (!empty($_POST['bathrooms'])) {
+        $bathrooms = sanitize($_POST['bathrooms']);
     } else {
-        $error[] = "Please enter number of toilet";
+     $error[] = "How many bathrooms is this property?";
+    }
+    if (!empty($_POST['toilets'])) {
+        $toilets = sanitize($_POST['toilets']);
+    } else {
+        $error[] = "Please enter number of toilets";
     }
 
     if (!empty($_POST['size'])) {
@@ -87,7 +91,7 @@ if (isset($_POST['property'])) {
            $error[] = "Set the price for this property";
        }
        if (!empty($_POST['append_to'])) {
-        $duration = sanitize($_POST['append_to']);
+        $append_to = sanitize($_POST['append_to']);
           
        } else {
            $error[] = "The price for this property is append to?";
@@ -120,33 +124,31 @@ if (isset($_POST['property'])) {
      } else {
         $serviced = 0;
      }
-     if (!empty($_POST['newly-built'])) {
-          $newly = sanitize($_POST['newly-built']);
+     if (!empty($_POST['newly_built'])) {
+          $newly_built = sanitize($_POST['newly_built']);
      } else {
      $newly= 0;
      }
      
     //  if there is no erroe
-    if (empty($err_msg)) {
+    if (empty($error)) {
         $propertyid = rand(3, 1000000000);
         $status = 'pending';
-
-        if ($filed) {
-            $query = "INSERT INTO properties (property_id, userid, title, purpose, type, sub_type, bedrooms, bathrooms, toilets, size, furnished, serviced, newly_built, state, locality, area, address, price, currency, append_to, installment_payment, description)
-                    VALUES ('$propertyid', '$user', '$title', '$purpose', '$type', '$sub_type', '$bedrooms', '$bathrooms', '$toilets', '$furnished', '$serviced', '$newly_built' , '$state', '$locality', '$area', '$address', '$price', '$currency', '$append_to', '$installment', '$description')";
+        
+        if ($propertyid) {
+            $query = "INSERT INTO properties (id, userid, title, purpose, type, sub_type, bedrooms, bathrooms, toilets, size, furnished, serviced, newly_built, state, locality, area, address, price, currency, append_to, installment_payment, description)
+                    VALUES ('$propertyid', '$user', '$title', '$purpose', '$type', '$sub_type', '$bedrooms', '$bathrooms', '$size', '$toilets', '$furnished', '$serviced', '$newly_built' , '$state', '$locality', '$area', '$address', '$price', '$currency', '$append_to', '$installment', '$description')";
             $send = mysqli_query($con, $query);
+            if(mysqli_error($con)){
+                echo "Error ". mysqli_error($con);
+            }
             if ($send) {
-               ?>
-               <script>
-                    alert("Upload the property pictures/images")
-               </script>
-               <?php
-                header(`location: property_images.php?propertyid=$propertyid`);
+                header('location: property_images.php?propertyid=$propertyid');
             }
         }
     } else {
      //return error here
-       $err_msg[]= "Oop! Something went wrong!";
+       $error[]= "Oop! Something went wrong!";
 
     }
 }

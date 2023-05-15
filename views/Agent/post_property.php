@@ -246,10 +246,17 @@ require('../../controllers/post_property.php');
             </div>
               <div class="row">
   <div class="mx-auto col-10 col-md-8 col-lg-6">
-  <form action="property_images.php" method="post">
+                    <?php if (!empty($error)) : ?>
+                               <div class="my-3">
+                                   <?php foreach ($error as $err) : ?>
+                                       <div class="alert alert-danger"><?php echo $err . '<br>' ?></div>
+                                   <?php endforeach; ?>
+                               </div>
+                    <?php endif; ?>
+  <form action="" method="post">
     <div class="input-group input-group-outline mb-3">
       <label class="form-label">Ttttle</label>
-        <input type="text" class="form-control" name="tittle">
+        <input type="text" class="form-control" name="title">
       </div>
                       <label for="cars">Purpose</label>
                      <div class="input-group input-group-outline mb-3">
