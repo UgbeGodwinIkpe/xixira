@@ -1,6 +1,6 @@
 <?php
-require 'functions.php';
 require '../config/config.php';
+require 'functions.php';
 $error = [];
 // ini_set('display_errors', 1);
 // error_reporting(E_ALL);

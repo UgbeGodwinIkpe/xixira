@@ -1,4 +1,8 @@
+<?php
+require('../../config/config.php');
+require('../../controllers/multiple_upload.php');
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 
