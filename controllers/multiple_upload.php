@@ -24,7 +24,7 @@ for( $i=0 ; $i < $total_count ; $i++ ) {
    //A file path needs to be present
    if ($tmpFilePath != ""){
       //Setup our new file path
-      $newFilePath = "../uploads/properties/" . $_FILES['upload']['name'][$i];
+      $newFilePath = "../../uploads/properties/" . $_FILES['upload']['name'][$i];
       //File is uploaded to temp dir
       if(move_uploaded_file($tmpFilePath, $newFilePath)) {
      //     saving the image directory to the database

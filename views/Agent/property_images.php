@@ -252,10 +252,7 @@ require('../../controllers/multiple_upload.php');
   <div class="mx-auto col-10 col-md-8 col-lg-6">
 
 
-                <form action="" method="post">
-
-              
-
+                <form action="" method="post" enctype="multipart/form-data">
                        <div class="form-group">
                        <label for="exampleFormControlFile1">Choose 1 or more images at once</label>
                      <input name="upload[]" type="file" multiple="multiple" class="btn bg-gradient-primary mt-4 w-100" id="exampleFormControlFile1">
