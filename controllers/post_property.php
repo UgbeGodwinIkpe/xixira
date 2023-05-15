@@ -141,7 +141,7 @@ if (isset($_POST['property'])) {
                     alert("Upload the property pictures/images")
                </script>
                <?php
-                header('location: property_images.php?user=<?php echo $user?>&propertyid=<?php echo $propertyid ?>');
+                header('location: property_images.php?propertyid='.$propertyid);
             }
         }
     } else {
