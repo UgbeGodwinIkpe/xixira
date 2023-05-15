@@ -132,7 +132,7 @@ if (isset($_POST['property'])) {
         $status = 'pending';
 
         if ($filed) {
-            $query = "INSERT INTO properties (id, userid, title, purpose, type, sub_type, bedrooms, bathrooms, toilets, size, furnished, serviced, newly_built, state, locality, area, address, price, currency, append_to, installment_payment, description)
+            $query = "INSERT INTO properties (property_id, userid, title, purpose, type, sub_type, bedrooms, bathrooms, toilets, size, furnished, serviced, newly_built, state, locality, area, address, price, currency, append_to, installment_payment, description)
                     VALUES ('$propertyid', '$user', '$title', '$purpose', '$type', '$sub_type', '$bedrooms', '$bathrooms', '$toilets', '$furnished', '$serviced', '$newly_built' , '$state', '$locality', '$area', '$address', '$price', '$currency', '$append_to', '$installment', '$description')";
             $send = mysqli_query($con, $query);
             if ($send) {
@@ -141,7 +141,7 @@ if (isset($_POST['property'])) {
                     alert("Upload the property pictures/images")
                </script>
                <?php
-                header('location: property_images.php?propertyid='.$propertyid);
+                header(`location: property_images.php?propertyid=$propertyid`);
             }
         }
     } else {
