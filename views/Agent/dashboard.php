@@ -2,17 +2,15 @@
 require '../../controllers/functions.php';
 require '../../config/config.php';
 require '../../controllers/logout.php';
+require '../../controllers/dashboard.php';
 $error = [];
-// ini_set('display_errors', 1);
-// error_reporting(E_ALL);
-// <input name="upload[]" type="file" multiple="multiple" />
-session_start();
-if (isset($_SESSION['user'])) {
-    $user = $_SESSION['user'];
-} else {
-    session_destroy();
-    header('location: ../login.php');
-}
+
+// if (isset($_SESSION['user'])) {
+//     $user = $_SESSION['user'];
+// } else {
+//     session_destroy();
+//     header('location: ../login.php');
+// }
 
 ?>
 <!DOCTYPE html>
