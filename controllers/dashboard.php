@@ -18,9 +18,9 @@ $sql = "SELECT * FROM properties INNER JOIN property_images ON properties.userid
     if ($query) {
         if (mysqli_num_rows($query) > 0) {
             $list=mysqli_fetch_assoc($query);
-            var_dump($list);
-            exit();
-             $i=0;
+            // var_dump($list);
+            // exit();
+            //  $i=0;
             while($i < $list){
             $i++;
             }
